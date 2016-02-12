@@ -81,11 +81,11 @@ setup_dir() {
     echo "coordinator=false" > $CONF_DIR/config.properties
     echo "query.max-memory=4GB" >> $CONF_DIR/config.properties
     echo "query.max-memory-per-node=1GB" >> $CONF_DIR/config.properties
-    echo "http-server.http.port=$SERV_PORT" >> $CONF_DIR/config.properties
+    echo "http-server.http.port=8080" >> $CONF_DIR/config.properties
     echo "discovery.uri=$SERV_URI" >> $CONF_DIR/config.properties
     cat $CONF_DIR/config.properties
   else
-    sed -ri 's/^(http-server.http.port=).*/\1'"$SERV_PORT"'/' "$CONF_DIR/config.properties"
+    sed -ri 's/^(http-server.http.port=).*/\1'"8080"'/' "$CONF_DIR/config.properties"
     sed -ri 's|^(discovery.uri=).*|\1'"$SERV_URI"'|' "$CONF_DIR/config.properties"
   fi
 
