@@ -7,7 +7,7 @@ ubuntu:14.04
  |
  |--- zhicwu/java:8
        |
-       |--- zhicwu/presto:0.136
+       |--- zhicwu/presto:latest
 ```
 * Official Ubuntu Trusty(14.04) docker image
 * Oracle JDK 8 latest release
@@ -16,7 +16,7 @@ ubuntu:14.04
 ## How to use
 - Pull the image
 ```
-# docker pull zhicwu/presto:0.136
+# docker pull zhicwu/presto:latest
 ```
 - Setup scripts
 ```

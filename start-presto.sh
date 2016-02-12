@@ -1,6 +1,6 @@
 #!/bin/bash
 PRESTO_ALIAS="my-presto"
-PRESTO_TAG="0.136"
+PRESTO_TAG="latest"
 
 cdir="`dirname "$0"`"
 cdir="`cd "$cdir"; pwd`"
