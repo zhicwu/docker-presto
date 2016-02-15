@@ -37,7 +37,7 @@ RUN chmod +x presto-*executable.jar \
 	&& ln -s presto-benchmark-driver-${PRESTO_VERSION}-executable.jar benchmark-driver \
 	&& cd ../prestoadmin \
 	&& ./install-prestoadmin.sh \
-	&& cd -
+	&& cd ..
 
 VOLUME ["/presto/etc", "/presto/data"]
 
