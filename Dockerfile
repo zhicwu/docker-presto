@@ -9,7 +9,7 @@ FROM zhicwu/java:8
 MAINTAINER Zhichun Wu <zhicwu@gmail.com>
 
 # Set Environment Variables
-ENV PRESTO_VERSION=0.136
+ENV PRESTO_VERSION=0.139
 ENV BASE_URL=https://repo1.maven.org/maven2/com/facebook/presto
 
 # Download Presto
