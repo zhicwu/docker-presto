@@ -31,6 +31,7 @@ RUN chmod +x presto-*executable.jar \
 	&& ln -s presto-cli-${PRESTO_VERSION}-executable.jar presto \
 	&& ln -s presto-verifier-${PRESTO_VERSION}-executable.jar verifier \
 	&& ln -s presto-benchmark-driver-${PRESTO_VERSION}-executable.jar benchmark-driver \
+	&& wget -P plugin/hive-hadoop2/ https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/hive-json-serde/hive-json-serde-0.2.jar \
 	&& cd -
 
 VOLUME ["/presto/etc", "/presto/data"]
