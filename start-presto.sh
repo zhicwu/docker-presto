@@ -56,11 +56,11 @@ setup_dir() {
     warn "node.properties not found, generate one with default settings..."
     echo "node.environment=$NODE_ENV" > $CONF_DIR/node.properties
     echo "node.id=$NODE_ID" >> $CONF_DIR/node.properties
-    echo "node.data-dir=$DATA_DIR" >> $CONF_DIR/node.properties
+    echo "node.data-dir=/presto/data" >> $CONF_DIR/node.properties
     cat $CONF_DIR/node.properties
   else
     sed -ri 's/^(node.environment=).*/\1'"$NODE_ENV"'/' "$CONF_DIR/node.properties"
-    sed -ri 's|^(node.data-dir=).*|\1'"$DATA_DIR"'|' "$CONF_DIR/node.properties"
+    sed -ri 's|^(node.data-dir=).*|\1'"/presto/data"'|' "$CONF_DIR/node.properties"
   fi
   
   if [ ! -f $CONF_DIR/jvm.config ]; then
@@ -72,7 +72,8 @@ setup_dir() {
     echo "-XX:+UseGCOverheadLimit" >> $CONF_DIR/jvm.config
     echo "-XX:+ExplicitGCInvokesConcurrent" >> $CONF_DIR/jvm.config
     echo "-XX:+HeapDumpOnOutOfMemoryError" >> $CONF_DIR/jvm.config
-    echo "-XX:OnOutOfMemoryError=kill -9 %p" >> $CONF_DIR/jvm.config
+#    echo "-XX:OnOutOfMemoryError=kill -9 %p" >> $CONF_DIR/jvm.config
+    echo "-XX:OnOutOfMemoryError=kill -9 0" >> $CONF_DIR/jvm.config
     cat $CONF_DIR/jvm.config
   fi
 

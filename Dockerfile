@@ -9,8 +9,7 @@ FROM zhicwu/java:8
 MAINTAINER Zhichun Wu <zhicwu@gmail.com>
 
 # Set Environment Variables
-ENV PRESTO_VERSION=0.141
-ENV BASE_URL=https://repo1.maven.org/maven2/com/facebook/presto
+ENV PRESTO_VERSION=0.141 PRESTO_HOME=/presto BASE_URL=https://repo1.maven.org/maven2/com/facebook/presto
 
 # Download Presto
 RUN apt-get update \
@@ -34,8 +33,9 @@ RUN chmod +x presto-*executable.jar \
 	&& wget -P plugin/hive-hadoop2/ https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/hive-json-serde/hive-json-serde-0.2.jar \
 	&& cd -
 
-VOLUME ["/presto/etc", "/presto/data"]
+WORKDIR $PRESTO_HOME
+VOLUME ["$PRESTO_HOME/etc", "$PRESTO_HOME/data"]
 
 EXPOSE 8080
 
-ENTRYPOINT ["/presto/bin/launcher", "run"]
+ENTRYPOINT ["./bin/launcher", "run"]
