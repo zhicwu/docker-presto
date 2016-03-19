@@ -11,7 +11,7 @@ ubuntu:14.04
 ```
 * Official Ubuntu Trusty(14.04) docker image
 * Oracle JDK 8 latest release
-* [Facebook Presto](http://prestodb.io/) 0.141 release
+* [Facebook Presto](http://prestodb.io/) latest release
 
 ## How to use
 - Pull the image
